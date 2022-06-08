@@ -35,10 +35,26 @@ class article
 
         $reqArticles=$db->prepare('SELECT article.* , member.member_firstname , member.member_lastname , categorie.categorie_name 
                                 FROM article 
-                                INNER JOIN member  ON member.id_member = article.id_article
-                                INNER JOIN categorie  ON categorie.id_categorie = article.id_article ');
+                                INNER JOIN member  ON member.id_member = article.article_authorId
+                                INNER JOIN categorie  ON categorie.id_categorie = article.article_categorieId
+                                ORDER BY article_date');
                                 
         $reqArticles->execute([]);
+
+        return $reqArticles->fetchAll(PDO::FETCH_OBJ);
+    }
+    
+    static function getAllArticleByCategorie($categorie="informatif"){
+        global $db;
+
+        $reqArticles=$db->prepare('SELECT article.* , member.member_firstname , member.member_lastname , categorie.categorie_name 
+                                FROM article 
+                                INNER JOIN member  ON member.id_member = article.article_authorId
+                                INNER JOIN categorie  ON categorie.id_categorie = article.article_categorieId
+                                WHERE categorie.categorie_name = ?
+                                ORDER BY article_date');
+                                
+        $reqArticles->execute([$categorie]);
 
         return $reqArticles->fetchAll(PDO::FETCH_OBJ);
     }

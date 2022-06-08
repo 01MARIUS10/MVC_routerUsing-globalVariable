@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS `articles`;
 DROP TABLE IF EXISTS `categories`;
-DROP TABLE IF EXISTS `authors`;
+DROP TABLE IF EXISTS `member`;
+DROP TABLE IF EXISTS `message`;
 
 DROP DATABASE IF EXISTS `mvc_database`;
 CREATE DATABASE `mvc_database`;
@@ -28,6 +29,14 @@ CREATE TABLE IF NOT EXISTS `member`
 	`member_birthdate` DATE NOT NULL, 
 	`member_tel` CHAR(10)
 );
+CREATE TABLE IF NOT EXISTS `message`
+(
+    `id_message` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `message_content` VARCHAR(65) NOT NULL, 
+	`id_from` INT  NOT NULL ,
+    `id_to` INT  NOT NULL ,
+);
+
 INSERT INTO `categorie`(`categorie_name`) 
 VALUES ('blague'),('etude'),('meditation'),('informatif'),('opinion');
 
@@ -39,35 +48,9 @@ VALUES
 ('Jaoued ', 'DAOUKI', '1987-08-18', '0612345678'),
 ('Kenny ', 'VANDERBECKEN', '1420-10-31', '0612345678');
 
-INSERT INTO `article`(`article_title`,`article_content`)
+INSERT INTO `article`(`article_title`,`article_content`,`article_authorId`,`article_categorieId`)
 VALUES 
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" ),
-('First publish','Voici mon premier publication encore implementer dans la requete brute de mysql'),
-('le buz du siecle',"aujourd'hui ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique" );
-
-
+('First publish','Voici mon premier publication categorie 3 encore implementer dans la requete brute de mysql',2,3),
+('an other publish','Voici une autre publication categorie 3 encore implementer dans la requete brute de mysql',3,3),
+('an other publish','Voici une je mexerce categorie 4 encore implementer dans la requete brute de mysql',4,4),
+('le buz du siecle',"aujourd'hui categorie 2 ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique",3,2 );

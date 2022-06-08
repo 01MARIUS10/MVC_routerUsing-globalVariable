@@ -10,11 +10,23 @@
         <div class="embleme">
             <h1>welcome to JOVObook </h1>
         </div>
-        <?php $articles = Article::getAllArticle()?>
+        <div class="categorie_home">
+            <form action="" method="post">
+                <label for="categie">Choose a categorie:</label>
+                <select id="categorie" name="categorie"  >
+                    <?php foreach ($categories as $categorie):?>
+                        <option value=<?= $categorie->categorie_name ?> > <?= $categorie->categorie_name ?></option>
+                    <?php endforeach;?>
+                    <option value="date" selected> date</option>
+                </select>
+                <button type="submit">Trier</button>
+            </form>
+        </div>
         <div class="container_home_list">
             <section>
                 <?php foreach ($articles as $article):?>
                     <article>
+                        
                         <div class="article_entete">
                             <h3> <?= $article->article_title ?> <h3>
                             <p> <?= $article->categorie_name ?> </p>

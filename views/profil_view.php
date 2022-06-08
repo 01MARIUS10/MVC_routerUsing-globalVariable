@@ -13,10 +13,11 @@
         <div class="competence_profil">
             
         </div>
-
+        <div class="parcours_profil">
+        
+        </div>
     </div>
-
-
+    
 
     <?php include_once "_shared/footer.php";?>
 </body>
