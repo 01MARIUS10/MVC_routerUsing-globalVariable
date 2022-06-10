@@ -6,14 +6,14 @@
 </head>
 <body>
     <?php include_once "_shared/header.php";?>
-    <div class="container_profil">
-        <div class="person_profil">
+    <div class="profil">
+        <div class="profil_person">
 
         </div>
-        <div class="competence_profil">
+        <div class="profil_competence">
             
         </div>
-        <div class="parcours_profil">
+        <div class="profil_parcours">
         
         </div>
     </div>

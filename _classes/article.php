@@ -37,7 +37,7 @@ class article
                                 FROM article 
                                 INNER JOIN member  ON member.id_member = article.article_authorId
                                 INNER JOIN categorie  ON categorie.id_categorie = article.article_categorieId
-                                ORDER BY article_date');
+                                ORDER BY article_date DESC');
                                 
         $reqArticles->execute([]);
 
@@ -52,11 +52,23 @@ class article
                                 INNER JOIN member  ON member.id_member = article.article_authorId
                                 INNER JOIN categorie  ON categorie.id_categorie = article.article_categorieId
                                 WHERE categorie.categorie_name = ?
-                                ORDER BY article_date');
+                                ORDER BY article_date DESC');
                                 
         $reqArticles->execute([$categorie]);
 
         return $reqArticles->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    static function addNewArticle($title,$content,$author,$categorie){
+        global $db;
+
+        $reqAddArticle = $db->prepare("
+            INSERT INTO `article`(`article_title`,`article_content`,`article_authorId`,`article_categorieId`)
+            VALUES (?,?,?,?);");
+
+        $reqAddArticle->execute([$title,$content,$author,$categorie]);
+
+        return true;
     }
 
 };

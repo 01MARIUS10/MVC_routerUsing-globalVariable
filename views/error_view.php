@@ -8,7 +8,6 @@
     <title><?= ucfirst($page)?></title>
 </head>
 <body>
-    <?php include_once "_shared/header.php";?>
     <h1>ERROR 404 _Page introuvable</h1>
 </body>
 </html>
