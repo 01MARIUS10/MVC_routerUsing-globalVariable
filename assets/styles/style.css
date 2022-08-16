@@ -132,86 +132,26 @@ footer{
 ------------------------------*/
 
 .message{
-    display:grid;
-    width:100vw;
-    grid-template-columns:300px 1fr ;
-    grid-template-rows: auto 150px 800px 200px auto;
-    grid-template-areas: 
-    "header header"
-    "list embleme"
-    "list conversation"
-    "list option"
-    "footer footer"
-    ;
+    color:#fff;
+    background-image:linear-gradient(to bottom left,#100541,#100541,#ff5349) ;
 }
-.message-head{
-    grid-area: header;
+.block1 ,.block2{
+    background: rgba(16, 5, 65, 0.801);
+    border-radius: 20px;
+    overflow: hidden;
 }
-.message-parameter{
-    grid-area: list;
-    background:#A64B2A ;
-    border: solid 3px #212529;
-}
-.message-embleme{
-    grid-area: embleme;
-    border: solid 3px #212529;
-}
-.message-conversation{
-    grid-area: conversation;
-}
-.message-form{
-    grid-area: option;
-}
-.message-foot{
-    grid-area: footer;
+.list-user >li{
+    color:black;
+    margin-top: 5px;
 }
 
-.message-parameter_embleme{
-    margin:20px auto 20px auto;
-    width:90%;
-    height: 30%;
-    position:relative;
-    background: #413F42;
-}
-.message-parameter_embleme>img{
-    width: 50%;
-    border-radius: 100%;
-    position:absolute;
-    bottom:-10%;
-    left:50%;
-    transform: translateX(-50%);
-}
-.message-parameter_icons{
-    padding: 10px 5px;
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
-}
-.message-parameter_icons>*{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.message-parameter_option{
-    margin:20px 5px;
-}
-.message-parameter_option>p{
-    text-align: center;
-    margin: 5px;
-}
-.message-parameter_option li{
-    display: grid;
-    padding:5px;
-    margin:5px;
-    border-radius: 10px;
-    grid-template-columns: 1fr 30px;
-    justify-content: space-between;
-    align-items: center;
-    background: #212529;
-}
+
+
 
 .message-embleme{
     width:100%;
-    background: #A64B2A;
+    height: 200px;
+    background: #ff5349;
     position:relative;
 }
 .message-embleme img{
@@ -221,27 +161,22 @@ footer{
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    
 }
-.message-conversation {
-    border:solid 3px darkgreen;
-    position:relative;
-}
-.message-conversation_listing{
-    border:solid 3px rgb(56, 1, 1);
-}
-.message-conversation_listing li{
+
+.message-conversation li{
     display: flex;
-    margin:5px 0 10px 0;
+    margin:3px 0 10px 0;
     border:solid 3px rgb(1, 36, 34);
 }
-.message-conversation_listing div{
+.message-conversation div{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     max-width: 40%;
 }
-.message-conversation_listing p{
-    background:#413F42;
+.message-conversation p{
+     background-color:  #ff5349;
+    /* background:#FEE715FF; */
     border-radius: 5px;
     padding:2px 5px;
 }
@@ -254,9 +189,13 @@ footer{
 .message-me{
     flex-direction: row-reverse;
 }
+.message-me p{
+    background-color:  #ff5349;
+}
 .message-me span{
     text-align: end;
 }
+
 
 
 

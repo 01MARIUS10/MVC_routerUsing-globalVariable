@@ -46,7 +46,7 @@ class message
     static function getRecentMessages(){
         global $db;
 
-        $reqMessage = $db->prepare("SELECT * FROM `message` ORDER BY `message_date`DESC LIMIT 5 ;");
+        $reqMessage = $db->prepare("SELECT * FROM `message` ORDER BY `message_date`DESC LIMIT 8 ;");
 
         $reqMessage->execute([]);
 
