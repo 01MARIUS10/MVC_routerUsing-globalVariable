@@ -30,7 +30,8 @@ CREATE TABLE IF NOT EXISTS `member`
 	`member_lastname` VARCHAR(65) NOT NULL, 
 	`member_pseudo` VARCHAR(20) NOT NULL,
     `member_birthdate` DATE NOT NULL, 
-	`member_tel` CHAR(10)
+	`member_tel` CHAR(10),
+    `member_password` CHAR(255) NOT NULL
 );
 CREATE TABLE IF NOT EXISTS `message`
 (
@@ -62,10 +63,10 @@ VALUES
 ('ambony fona less ny moral dady eh',3),
 ('merci prom',1);
 
-INSERT INTO `member`(`member_firstname`,`member_lastname`,`member_pseudo`,`member_birthdate`,`member_tel`)
+INSERT INTO `member`(`member_firstname`,`member_lastname`,`member_pseudo`,`member_birthdate`,`member_tel`,`member_password`)
 VALUES 
-('John Christopher', 'DEPP II','Cox', '1963-06-09', '0606060606'),
-('Cyril', 'HANOUNA','Tirilira', '1974-09-23', '0611220044'),
-('Adrien', 'NOUGARET','Melvin', '1990-03-01', '2309457112'),
-('Jaoued ', 'DAOUKI','Mangala devant' ,'1987-08-18', '0612345678'),
-('Kenny ', 'VANDERBECKEN','Prezidant', '1420-10-31', '0612345678');
+('John Christopher', 'DEPP II','Cox', '1963-06-09', '0606060606','cox'),
+('Cyril', 'HANOUNA','Tirilira', '1974-09-23', '0611220044','Tirilira'),
+('Adrien', 'NOUGARET','Melvin', '1990-03-01', '2309457112','Melvin'),
+('Jaoued ', 'DAOUKI','Mangala devant' ,'1987-08-18', '0612345678','Mangala devant'),
+('Kenny ', 'VANDERBECKEN','Prezidant', '1420-10-31', '0612345678','Presidant');

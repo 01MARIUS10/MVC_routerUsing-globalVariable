@@ -46,9 +46,7 @@ class member
     static function checkMember($pseudo,$password){
         global $db;
 
-        $reqCheckMember=$db->prepare('SELECT * FROM member 
-                                        WHERE   member_pseudo=? AND
-                                                member_password=?  ');
+        $reqCheckMember=$db->prepare("SELECT * FROM member WHERE   `member_pseudo`=? AND `member_password`=?  ;");
         $reqCheckMember->execute([$pseudo,$password]);
         return $reqCheckMember->fetch(PDO::FETCH_OBJ);
     }

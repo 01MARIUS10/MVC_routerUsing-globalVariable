@@ -226,11 +226,8 @@ footer{
 .message-conversation {
     border:solid 3px darkgreen;
     position:relative;
-    height: 500px;
 }
 .message-conversation_listing{
-    position:absolute;
-    width:100%;
     border:solid 3px rgb(56, 1, 1);
 }
 .message-conversation_listing li{

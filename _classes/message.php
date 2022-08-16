@@ -36,11 +36,20 @@ class message
     static function getAllMessages(){
         global $db;
 
-        $reqMessage = $db->prepare("SELECT * FROM `message` ORDER BY `message_date` ;");
+        $reqMessage = $db->prepare("SELECT * FROM `message` ORDER BY `message_date`;");
 
         $reqMessage->execute([]);
 
         return $reqMessage->fetchAll(PDO::FETCH_OBJ);
     }
 
+    static function getRecentMessages(){
+        global $db;
+
+        $reqMessage = $db->prepare("SELECT * FROM `message` ORDER BY `message_date`DESC LIMIT 5 ;");
+
+        $reqMessage->execute([]);
+
+        return array_reverse($reqMessage->fetchAll(PDO::FETCH_OBJ));
+    }
 };
