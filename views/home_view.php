@@ -13,11 +13,9 @@
             <h1>welcome <?= $memberOn->firstname ?> </h1>
         </div>
 <!--FORMULAIRE NEW PUB ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
-        <div class="home_addNewPub m-5">
-            <form method="post" class="m-2 p-2 border bg-secondary" action="">
-
+        <div class="m-5" <?=$display_newPub ?>>
+            <form method="post" class="form_content m-2 p-2 border" action="">
                 <p class="font-weight-bold">New publish</p>
-
                 <div class="form-group " hidden>
                     <select class="custom-select mr-sm-2" id="pub-author" name="pub-author">
                         <option selected 
@@ -31,7 +29,6 @@
                     <div class="col">
                         <input type="text" class="form-control" id="pub-title" name="pub-title" placeholder="Title ">
                     </div>
-
                     <div class="col">
                         <select class="custom-select mr-sm-2" id="pub-categorie" name="pub-categorie">
                             <option selected value="">Choose...</option>
@@ -54,21 +51,23 @@
             </form>
         </div>
 <!--FORMULAIRE CATEGORIE DE TRIAGE ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
-        <div class="home_form form-group m-2">
-            <form action="" method="post" class="">
+        <div class="m-2 d-flex align-items-center" >
+            <form action="" method="post" class="w-75 m-auto d-flex align-items-center">
                 <label for="categorie">Choose a categorie:</label>
-                <select  class="w-25 form-select mr-sm-2" aria-label="Default select example"id="categorie" name="categorie">
+                <select  class="form-select custom-select" aria-label="Default select example"id="categorie" name="categorie">
                     <?php foreach ($categories as $categorie):?>
                         <option value=
                             <?= $categorie->categorie_name ?> 
                             <?php selectedOption($html_placeholder,$categorie->categorie_name);?> > 
                             <?= $categorie->categorie_name ?>
                         </option>
-                        
                     <?php endforeach;?>
                     <option value="date" <?php selectedOption($html_placeholder,"date");?> > date</option>
                 </select>
-                <button type="submit">Trier</button>
+                <button class="btn btn-primary" type="submit">Trier</button>
+            </form>
+            <form action="" method="post" class="m-auto" <?= $display_linkNewPub?> >
+                <button class="btn btn-primary" type="submit" name="Add_new-pub"> Add new Pub</button>
             </form>
         </div>
 <!--LISTING DES ARTICLES---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->  
@@ -90,6 +89,27 @@
                     </article>
                 <?php endforeach?>
             </section>
+            <div class="indexPage">
+                <div class="indexPage_number">
+                    <?php if($indexPage>1) :?>
+                    <form action="" method="post">
+                        <button type="submit" value="<?= $indexPage-1 ?>" name="indexPage">prec</button>
+                    </form>
+                    <?php endif;?>
+
+                    <?php for($i=0;$i<4;$i++) :?>
+                    <form action="" method="post">
+                        <button type="submit" value="<?= $i+$indexPage ?>" name="indexPage"><?= $i+$indexPage ?></button>
+                    </form>
+                    <?php endfor;?>
+                    <form action="" method="post">
+                        <button type="submit" value="<?=$indexPage+3 ?>" name="indexPage">...</button>
+                    </form>
+                    
+                    <!-- <?= $indexPage ?> -->
+
+                </div>
+            </div>
         </div>
 <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->     
     </div>

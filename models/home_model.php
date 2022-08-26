@@ -7,11 +7,5 @@
     $categories = Categorie::getAllCategorie();
     $memberOn = new Member($_SESSION["UserId"]);
 
-
-    $erreurAddPub="";
-
-    
-    
-
-    
+    $erreurAddPub="";    
 ?>

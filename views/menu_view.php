@@ -6,14 +6,6 @@
 </head>
 <body>
     <?php include_once "_shared/header.php";?>
-    <div class="container_menu">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li>Deconnection</li>
-        </ul>
-    </div>
-    <?php include_once "_shared/footer.php";?>
+    <h1>welcome menu view</h1>
 </body>
 </html>

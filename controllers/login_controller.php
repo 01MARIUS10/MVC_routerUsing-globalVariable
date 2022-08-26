@@ -6,6 +6,8 @@
                 $Iam= Member::checkMember($pseudo,$password);
                 if($Iam){
                     $_SESSION["UserId"]=$Iam->id_member;
+                    $_SESSION["indexPage"]=1;
+                    $_SESSION["indexMessage"]=1;
                 }
 
             }

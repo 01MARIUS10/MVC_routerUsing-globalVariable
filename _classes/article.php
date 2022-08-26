@@ -43,6 +43,22 @@ class article
 
         return $reqArticles->fetchAll(PDO::FETCH_OBJ);
     }
+
+    static function getHomeArticle($index){
+        global $db;
+
+        $reqArticles=$db->prepare('SELECT article.* , member.member_firstname , member.member_lastname , categorie.categorie_name 
+                                FROM article 
+                                INNER JOIN member  ON member.id_member = article.article_authorId
+                                INNER JOIN categorie  ON categorie.id_categorie = article.article_categorieId
+                                WHERE id_article BETWEEN ? AND ?
+                                ORDER BY article_date DESC'
+                                );
+                                
+        $reqArticles->execute([(($index-1)*3)+1,(($index-1)*3)+3]);
+
+        return $reqArticles->fetchAll(PDO::FETCH_OBJ);
+    }
     
     static function getAllArticleByCategorie($categorie="informatif"){
         global $db;

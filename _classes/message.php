@@ -43,13 +43,23 @@ class message
         return $reqMessage->fetchAll(PDO::FETCH_OBJ);
     }
 
-    static function getRecentMessages(){
-        global $db;
+    static function getRecentMessages($indexMessage ,$countMessage){
+        global $db; 
 
-        $reqMessage = $db->prepare("SELECT * FROM `message` ORDER BY `message_date`DESC LIMIT 8 ;");
+        $reqMessage = $db->prepare("SELECT * FROM `message` WHERE `id_message` BETWEEN ? AND ?  ;");
+
+        $reqMessage->execute([$countMessage-($indexMessage*3)+1,$countMessage-(($indexMessage-1)*3)]);
+
+        return ($reqMessage->fetchAll(PDO::FETCH_OBJ));
+    }
+
+    static function getCountMessages(){
+        global $db; 
+
+        $reqMessage = $db->prepare("SELECT COUNT(*) FROM `message` ;");
 
         $reqMessage->execute([]);
 
-        return array_reverse($reqMessage->fetchAll(PDO::FETCH_OBJ));
+        return $reqMessage->fetch()[0];
     }
 };

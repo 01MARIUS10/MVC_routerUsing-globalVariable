@@ -32,10 +32,15 @@
                         <img src="../assets/images/logo.jpg" alt="logo">
                     </div>
                     <div class="lastMessage text-center p-3">
-                        <span class="p-2 border border-danger">
-                            latest
-                            <img src="../assets/icon/fleche.svg" alt="fleche">
-                        </span>
+                        <?php if(($countMessage-($indexMessage*3)+1)>=3) :?>
+                        <form action="" method="post">
+                            <button class="p-4 border border-danger" type="submit" name="latestMessage" value=".">
+                                latest
+                                <img src="../assets/icon/fleche.svg" alt="fleche">
+                            </button>
+                            <?= $indexMessage ?>
+                        </form>
+                        <?php endif ;?>
                     </div>
                     <ul class="message-conversation">
                         <?php foreach($messages as $message):?>
@@ -48,6 +53,17 @@
                         </li>
                         <?php endforeach ;?>
                     </ul>
+                    <div class="lastMessage text-center p-3">
+                        <?php if($indexMessage!=1) :?>
+                            <form action="" method="post">
+                                <button class="p-4 border border-danger" type="submit" name="ownerMessage" value=".">
+                                    owner
+                                    <img src="../assets/icon/fleche.svg" alt="fleche">
+                                </button>
+                                <?= $indexMessage ?>
+                            </form>
+                        <?php endif ;?>
+                    </div>
                     <div class="message-form form-group">
                         <form class="m-2" action="" method="post">
                             <div class="d-flex">

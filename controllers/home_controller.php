@@ -1,5 +1,13 @@
 <?php 
 
+    if(isset($_POST["indexPage"])){
+        $_SESSION["indexPage"]=$_POST["indexPage"];
+    }
+    else{
+        $_SESSION["indexPage"]=1;
+
+    }
+
     /*  FROM VIEW */
     /*  TRAITEMENT DES NOUVEAU PUBLICATION  */
     /*  TO DATABASE */
@@ -42,8 +50,17 @@
         $html_placeholder = $_POST["categorie"];
     }
     else{
-        $articles = Article::getAllArticle();
+        $indexPage = $_SESSION["indexPage"];
+        $articles = Article::getHomeArticle($indexPage);
         $html_placeholder = "date";
     }
     
+    if(isset($_POST["Add_new-pub"])){
+        $display_newPub="";
+        $display_linkNewPub="hidden";
+    }
+    else{
+        $display_newPub="hidden";
+        $display_linkNewPub="";
+    }
 ?>

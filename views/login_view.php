@@ -7,7 +7,6 @@
 <body>
     <div class="login-container">
         <div class="login-formulaire">
-            <?php print_r($_SESSION)?>
             <form method="post" class="m-2 p-2 border bg-secondary" action="">
                 <p class="font-weight-bold">Se connecter</p>
                 <div class="form-group ">

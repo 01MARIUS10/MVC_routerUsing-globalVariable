@@ -6,9 +6,9 @@
         <li><a href="index.php?page=Notification" <?php if($page=="notification"){echo "class='pageOn'";}?>>Notification</a></li>
         <li><a href="index.php?page=Menu" <?php if($page=="menu"){echo "class='pageOn'";}?>>Menu</a></li>
         
-    </ul>
-    <p class="header_nav2">
-        <input class="header_nav2-input" type="text" name="search" id="search">
-        <img class="header_icon-menu" src="../../assets/images/menu.png" alt="icon">
-    </p>
+    </ul> 
+    <form action="" method="post">
+        <button class="btn btn-danger" name="Deconnection">Deconnection</button>
+    </form>
+    
 </header>

@@ -6,19 +6,6 @@
 </head>
 <body>
     <?php include_once "_shared/header.php";?>
-    <div class="profil">
-        <div class="profil_person">
-
-        </div>
-        <div class="profil_competence">
-            
-        </div>
-        <div class="profil_parcours">
-        
-        </div>
-    </div>
-    
-
-    <?php include_once "_shared/footer.php";?>
+    <h1>welcome profil view</h1>
 </body>
 </html>

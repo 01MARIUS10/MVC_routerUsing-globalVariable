@@ -5,8 +5,6 @@
 
     <!-- css style -->
     <link rel="stylesheet" href="../assets/styles/style.css">
-    <link rel="stylesheet" href="../assets/styles/styles2.css">
-
 
     <!-- js code -->
 

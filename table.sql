@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS `articles`;
-DROP TABLE IF EXISTS `categories`;
-DROP TABLE IF EXISTS `member`;
-DROP TABLE IF EXISTS `message`;
+-- DROP TABLE IF EXISTS `articles`;
+-- DROP TABLE IF EXISTS `categories`;
+-- DROP TABLE IF EXISTS `member`;
+-- DROP TABLE IF EXISTS `message`;
 
 DROP DATABASE IF EXISTS `mvc_database`;
 CREATE DATABASE `mvc_database`;
@@ -31,7 +31,8 @@ CREATE TABLE IF NOT EXISTS `member`
 	`member_pseudo` VARCHAR(20) NOT NULL,
     `member_birthdate` DATE NOT NULL, 
 	`member_tel` CHAR(10),
-    `member_password` CHAR(255) NOT NULL
+    `member_password` CHAR(255) NOT NULL,
+    `member_img` CHAR(255) DEFAULT '../assets/DB-img/profil/default.jpg'
 );
 CREATE TABLE IF NOT EXISTS `message`
 (
@@ -49,19 +50,21 @@ VALUES ('blague'),('etude'),('meditation'),('informatif'),('opinion');
 INSERT INTO `article`(`article_title`,`article_content`,`article_authorId`,`article_categorieId`)
 VALUES 
 ('First publish','Voici mon premier publication categorie 3 encore implementer dans la requete brute de mysql',2,3),
-('an other publish','Voici une autre publication categorie 3 encore implementer dans la requete brute de mysql',3,3),
-('an other publish','Voici une je mexerce categorie 4 encore implementer dans la requete brute de mysql',4,4),
-('le buz du siecle',"aujourd'hui categorie 2 ,encore des personnes ont ete kidnapper puis relacher et aucun hypothese n'est formellement logique",3,2 );
+('second publish','Voici une autre publication categorie 3 encore implementer dans la requete brute de mysql',3,3),
+('third publish','Voici une je mexerce categorie 4 encore implementer dans la requete brute de mysql',4,4),
+('fourt publish','Voici mon premier publication categorie 3 encore implementer dans la requete brute de mysql',2,3),
+('five publish','Voici une autre publication categorie 3 encore implementer dans la requete brute de mysql',3,3),
+('six publish','Voici une je mexerce categorie 4 encore implementer dans la requete brute de mysql',4,4),
+('seven publish','Voici mon premier publication categorie 3 encore implementer dans la requete brute de mysql',2,3),
+('eight publish','Voici une autre publication categorie 3 encore implementer dans la requete brute de mysql',3,3),
+('nine publish','Voici une je mexerce categorie 4 encore implementer dans la requete brute de mysql',4,4),
+('ten publish','Voici mon premier publication categorie 3 encore implementer dans la requete brute de mysql',2,3),
+('elevensecond publish','Voici une autre publication categorie 3 encore implementer dans la requete brute de mysql',3,3);
 
 INSERT INTO `message`(`message_content`,`id_from`)
 VALUES 
-('kaiza2 dahol prom',1),
-('kaiza2 less',2),
-('de aona hono',3),
-('zao manandrakandrana zao eh',1),
-('enganie mba ande ty ',1),
-('ambony fona less ny moral dady eh',3),
-('merci prom',1);
+('message1',1);
+
 
 INSERT INTO `member`(`member_firstname`,`member_lastname`,`member_pseudo`,`member_birthdate`,`member_tel`,`member_password`)
 VALUES 

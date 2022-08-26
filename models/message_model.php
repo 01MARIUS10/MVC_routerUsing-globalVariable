@@ -1,11 +1,7 @@
 <?php
-    $messages = Message::getRecentMessages();
+    $countMessage = Message::getCountMessages();
+    $messages = Message::getRecentMessages($indexMessage,$countMessage);
     $erreurMessage="";
     $users = Member::getAllMember();
 
-
-
-
 ?>
-
-    
