@@ -32,27 +32,59 @@ a:hover{
 /* --------LOGIN--------- */
 /* ----------------------- */
 .login-container{
-    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width:100vw;
+    height: 100vh;
+    background:linear-gradient(to bottom right,red,green);
 }
 .login-formulaire{
-    width:30vw;
-    height: 50vh;
-    position:absolute;
-    top:50%;
-    right:50%;
-    transform: translate(50%,50%);
+    width:40vw;
+    min-width: 400px;
+    padding: 10px;
+    background: rgba(16, 16, 16, 0.201);
 }
+.login-container form{
+    height: 100%;
+    padding:20px;
+}
+.login-head{
+    margin:20px 0;
+    display: flex;
+    justify-content: center;
+}
+.login-head img{
+    width:40%;
+    border-radius: 60% ;
+}
+.login-button button{
+    width:100%;
+    background: linear-gradient(to bottom left,rgb(0, 167, 218),rgb(0, 0, 95));
+    border-radius: 20px;
+    padding:5px;
+    font-size: large;
+    color:white;
+}
+.login-formulaire .redirectionSignIn{
+    display: block;
+    text-align: center;
+}
+
 
 /* --------HEADER--------- */
 /* ----------------------- */
 .header{
+    position: sticky;
+    top:0;
     display:flex;
     justify-content: space-between;
     align-items: center;
     padding:16px 4vw;
-    background: #413F42;
+    background: #191c24;
+    box-shadow: 4px 4px 20px white;
     color: #fff;
+    z-index: 2;
 }
 header>ul{
     margin:0;
@@ -93,6 +125,7 @@ footer{
     background: linear-gradient(#100541,#100541,white,white);
 }
  .home_background{
+    margin-bottom: 15px;
     position:relative;
     background: url("../images/img.jpg");
     height: 60vh;
@@ -152,6 +185,11 @@ footer{
     border:solid 2px black;
     padding:10px 15px;
     margin-right: 10px;
+    border-radius: 5px;
+}
+.indexPage-active{
+    background: #191c24;
+    color:white;
 }
 
 

@@ -1,4 +1,6 @@
 <?php 
+    $ArticleEntity = new Article(Database::getPDO());
+
 
     if(isset($_POST["indexPage"])){
         $_SESSION["indexPage"]=$_POST["indexPage"];
@@ -18,8 +20,7 @@
                 $content=str_secure($_POST["pub-content"]);
                 $authorID=str_secure($_POST["pub-author"]);
                 $categorieID=str_secure($_POST["pub-categorie"]);
-
-                $boolSucces = Article::addNewArticle($title,$content,$authorID,$categorieID);
+                $boolSucces = $ArticleEntity->addNewArticle($title,$content,$authorID,$categorieID);
             }
             else{
                 if(empty($_POST["pub-title"])){
@@ -46,12 +47,13 @@
     /*  FROM DATABASE TO VARIABLE */
     if(isset($_POST["categorie"]) && !empty($_POST["categorie"]) && $_POST["categorie"]!="date"){
         //l'article selon la categorie triée
-        $articles = Article::getAllArticleByCategorie($_POST["categorie"]);
+        
+        $articles = $ArticleEntity->getAllArticleByCategorie($_POST["categorie"]);
         $html_placeholder = $_POST["categorie"];
     }
     else{
         $indexPage = $_SESSION["indexPage"];
-        $articles = Article::getHomeArticle($indexPage);
+        $articles = $ArticleEntity->getHomeArticle($indexPage);
         $html_placeholder = "date";
     }
     

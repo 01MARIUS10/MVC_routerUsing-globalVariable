@@ -51,7 +51,7 @@
             </form>
         </div>
 <!--FORMULAIRE CATEGORIE DE TRIAGE ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
-        <div class="m-2 d-flex align-items-center" >
+        <div class="d-flex align-items-center m-2" >
             <form action="" method="post" class="w-75 m-auto d-flex align-items-center">
                 <label for="categorie">Choose a categorie:</label>
                 <select  class="form-select custom-select" aria-label="Default select example"id="categorie" name="categorie">
@@ -92,16 +92,21 @@
             <div class="indexPage">
                 <div class="indexPage_number">
                     <?php if($indexPage>1) :?>
-                    <form action="" method="post">
-                        <button type="submit" value="<?= $indexPage-1 ?>" name="indexPage">prec</button>
-                    </form>
+                        <form action="" method="post">
+                            <button type="submit" value="<?= $indexPage-1 ?>" name="indexPage">prec</button>
+                        </form>
                     <?php endif;?>
 
                     <?php for($i=0;$i<4;$i++) :?>
-                    <form action="" method="post">
-                        <button type="submit" value="<?= $i+$indexPage ?>" name="indexPage"><?= $i+$indexPage ?></button>
-                    </form>
+                        <?php if($indexPage!=$i+$indexPage):?>
+                        <form action="" method="post">
+                            <button type="submit" value="<?= $i+$indexPage ?>" name="indexPage"><?= $i+$indexPage ?></button>
+                        </form>
+                        <?php else:?>
+                            <button class="indexPage-active" name="indexPage"><?= $i+$indexPage ?></button>
+                        <?php endif?>
                     <?php endfor;?>
+
                     <form action="" method="post">
                         <button type="submit" value="<?=$indexPage+3 ?>" name="indexPage">...</button>
                     </form>

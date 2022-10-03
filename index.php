@@ -1,9 +1,10 @@
 <?php
     include "_config/config.php";
     include "_config/db.php";
-    
+    include_once "_classes/DbService/Database.php";
+    $db = new Database();
 
-    include_once "_classes/member.php";
+    include_once "_classes/Member.php";
     include_once "_functions/fonction.php";
     include_once "controllers/basicController.php";
 
@@ -18,9 +19,9 @@ if(!isset($_SESSION["UserId"]) || empty($_SESSION["UserId"])){
     }
 }
 else{
-    include_once "_classes/article.php";
-    include_once "_classes/categorie.php";
-    include_once "_classes/message.php";
+    include_once "_classes/Article.php";
+    include_once "_classes/Categorie.php";
+    include_once "_classes/Message.php";
 
     //definition de la page courante
     if(isset($_GET["page"]) && !empty($_GET["page"])){
@@ -34,7 +35,8 @@ else{
 
     if(!in_array($page."_controller.php",$allPages)){
         $page="error";
-    } 
+    }
+    
     include_once "_functions/".$page."_function.php";
     include_once "controllers/".$page."_controller.php";
     include_once "models/".$page."_model.php";

@@ -1,7 +1,11 @@
 <?php
-    $countMessage = Message::getCountMessages();
-    $messages = Message::getRecentMessages($indexMessage,$countMessage);
+    $MessageEntity = $MessageEntity ?? new Message(Database::getPDO());
+    $MemberEntity = $MemberEntity ?? new Member(Database::getPDO());
+
+    $countMessage = $MessageEntity->getCountMessages();
+    $messages = $MessageEntity->getRecentMessages($indexMessage,$countMessage);
     $erreurMessage="";
-    $users = Member::getAllMember();
+    $users =$MemberEntity->getAllMember();
+
 
 ?>

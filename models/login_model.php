@@ -1,5 +1,7 @@
 <?php
-    $members= Member::getAllMember();
+    
+    $MemberEntity = $MemberEntity ?? new Member(Database::getPDO());
+    $members= $MemberEntity->getAllMember();
 
     $erreurLogin="";
     $Iam="";

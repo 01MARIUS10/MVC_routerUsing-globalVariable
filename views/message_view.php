@@ -46,7 +46,7 @@
                         <?php foreach($messages as $message):?>
                         <li class=<?php Class_reconnaissance($message->id_from) ?> >
                             <div class="message_about">
-                                <span><?php if(!is_me($message->id_from)){echo (Member::getName($message->id_from))->member_firstname;}  ?></span>
+                                <span><?php if(!is_me($message->id_from)){echo ($MemberEntity->getName($message->id_from))->member_firstname;}  ?></span>
                                 <p><?= $message->message_content ?></p>
                             </div>
                             <span class="message_time"><?= ($message->message_date) ?></span>
