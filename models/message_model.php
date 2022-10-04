@@ -1,6 +1,6 @@
 <?php
-    $MessageEntity = $MessageEntity ?? new Message(Database::getPDO());
-    $MemberEntity = $MemberEntity ?? new Member(Database::getPDO());
+    $MessageEntity = $MessageEntity ?? new Message($QueryBuilder);
+    $MemberEntity = $MemberEntity ?? new Member($QueryBuilder);
 
     $countMessage = $MessageEntity->getCountMessages();
     $messages = $MessageEntity->getRecentMessages($indexMessage,$countMessage);

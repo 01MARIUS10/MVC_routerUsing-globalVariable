@@ -1,6 +1,6 @@
 <?php 
 
-$MemberEntity = new Member(Database::getPDO());
+$MemberEntity = new Member($QueryBuilder);
 
 if(isset($_POST["btn-submit-login"]) ){
         if(isset($_POST["login-pseudo"]) && isset($_POST["login-password"])){
@@ -8,12 +8,12 @@ if(isset($_POST["btn-submit-login"]) ){
                 $pseudo= str_secure($_POST["login-pseudo"]);
                 $password= str_secure($_POST["login-password"]);
                 $Iam= $MemberEntity->checkMember($pseudo,$password);
+                
                 if($Iam){
                     $_SESSION["UserId"]=$Iam->id_member;
                     $_SESSION["indexPage"]=1;
                     $_SESSION["indexMessage"]=1;
                 }
-
             }
             else{
                 if(empty($_POST["login-pseudo"])){
@@ -22,11 +22,7 @@ if(isset($_POST["btn-submit-login"]) ){
                 if(empty($_POST["login-password"])){
                     $erreurLogin.= "<br> pas de mot de passe ";
                 }
-            }
-            
-            
-        }
-        
+            }   
+        } 
     }
-
 ?>

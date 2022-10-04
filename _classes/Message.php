@@ -1,22 +1,22 @@
 <?php
 class message
 {
-    private $db;
+    private $qb;
     public $id;
     public $content;
     public $date;
     public $authorID;
 
-    function __construct(\PDO $PDO){
-        if(!$this->db){
-            $this->db=$PDO;
+    function __construct(QueryBuilder $QB){
+        if(!$this->qb){
+            $this->qb=$QB;
         }        
     }
 
     public function addNewMessage($content,$authorID){
-        $reqNewMessage= $this->db->prepare("INSERT INTO `message`(`message_content`,`id_from`)
-                                        VALUES (?,?);");
-        $reqNewMessage->execute([$content,$authorID]);
+        $reqNewMessage= $this->qb->query("INSERT INTO `message`(`message_content`,`id_from`) ")
+                                ->query("VALUES (?,?)");
+        $reqNewMessage->execute($content,$authorID);
 
         $theRecentMessage= $this->getLast0neMessage($authorID);
 
@@ -28,26 +28,37 @@ class message
     }
 
     public function getLast0neMessage($idAuthor){
-        $reqOneMessage = $this->db->prepare("SELECT * FROM `message` WHERE `id_from`=?  ORDER BY `message_date` DESC LIMIT 1 ;");
-        $reqOneMessage->execute([$idAuthor]);
+        $reqOneMessage = $this->qb->query("SELECT * ")
+                                ->query("FROM `message` ")
+                                ->query("WHERE `id_from`=?  ")
+                                ->query("ORDER BY `message_date` ")
+                                ->query("DESC LIMIT 1 ");
+        $reqOneMessage->execute($idAuthor);
         return $reqOneMessage->fetch(PDO::FETCH_OBJ);
     }
 
     public function getAllMessages(){
-        $reqMessage = $this->db->prepare("SELECT * FROM `message` ORDER BY `message_date`;");
-        $reqMessage->execute([]);
+        $reqMessage = $this->qb->query("SELECT * ")
+                            ->query("FROM `message` ")
+                            ->query("ORDER BY `message_date`");
+        $reqMessage->execute();
         return $reqMessage->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function getRecentMessages($indexMessage ,$countMessage){
-        $reqMessage = $this->db->prepare("SELECT * FROM `message` WHERE `id_message` BETWEEN ? AND ?  ;");
-        $reqMessage->execute([$countMessage-($indexMessage*3)+1,$countMessage-(($indexMessage-1)*3)]);
+        $reqMessage = $this->qb->query("SELECT * ")
+                            ->query("FROM `message` WHERE `id_message` ")
+                            ->query("BETWEEN ? ")
+                            ->query("AND ? ");
+        $reqMessage->execute($countMessage-($indexMessage*3)+1,$countMessage-(($indexMessage-1)*3));
         return ($reqMessage->fetchAll(PDO::FETCH_OBJ));
     }
 
     public function getCountMessages(){
-        $reqMessage = $this->db->prepare("SELECT COUNT(*) FROM `message` ;");
-        $reqMessage->execute([]);
-        return $reqMessage->fetch()[0];
+        $reqMessage = $this->qb->query("SELECT COUNT(*) ")
+                            ->query("FROM `message` ");
+        $reqMessage->execute();
+
+        return $reqMessage->fetch(PDO::FETCH_ASSOC)["COUNT(*)"];
     }
 };

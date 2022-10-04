@@ -1,5 +1,5 @@
 <?php 
-    $ArticleEntity = new Article(Database::getPDO());
+    $ArticleEntity = new Article($QueryBuilder);
 
 
     if(isset($_POST["indexPage"])){

@@ -5,9 +5,7 @@ class HomeService{
     public static $concatIndexPage;
     private $nbrPub;
 
-    public function __construct(int $indexPage=1,){
-
+    public function __construct(int $indexPage=1){
+        
     }
-
-
 };

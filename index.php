@@ -1,8 +1,9 @@
 <?php
     include "_config/config.php";
     include "_config/db.php";
-    include_once "_classes/DbService/Database.php";
-    $db = new Database();
+    include_once "_core/Database/Database.php";
+    include_once "_core/QueryBuilder/QueryBuilder.php";
+    $QueryBuilder = new QueryBuilder();
 
     include_once "_classes/Member.php";
     include_once "_functions/fonction.php";
@@ -12,7 +13,6 @@
 if(!isset($_SESSION["UserId"]) || empty($_SESSION["UserId"])){
     if(isset($_GET["page"]) && !empty($_GET["page"]) && !isset($_POST["Deconnection"])){
         $page = "error";
-        echo"errorrrrr";
     }
     else{
         $page = "login";

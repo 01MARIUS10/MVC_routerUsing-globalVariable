@@ -1,6 +1,6 @@
 <?php
-    $CategorieEntity = $CategorieEntity ?? new Categorie(Database::getPDO());
-    $MemberEntity = $MemberEntity ?? new Member(Database::getPDO());
+    $CategorieEntity = $CategorieEntity ?? new Categorie($QueryBuilder);
+    $MemberEntity = $MemberEntity ?? new Member($QueryBuilder);
 
     /*  FROM DATABASE */
     /*  LES DONNES VENANT DE LA BASE DE DONNE  */

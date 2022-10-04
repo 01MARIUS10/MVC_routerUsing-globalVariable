@@ -11,9 +11,5 @@
     else{
         echo "message-other";
     }
-    // function displayError($error){
-    //     if(empty($error)){
-    //         echo "hidden";
-    //     }
-    // }
+
 }

@@ -1,6 +1,6 @@
 <?php
 
-    $MessageEntity = new Message($db->getPDO());
+    $MessageEntity = new Message($QueryBuilder);
 
     if(isset($_POST["latestMessage"])){
         $_SESSION["indexMessage"]+=1;
